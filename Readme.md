@@ -87,6 +87,18 @@ functions are :
 
    This functions returns day of the date like if the date is 30 6 2024 then it is sunday pass the argument as MM-DD-YYYY
 
+12. daysOfYear
+
+   This function returns how much days of the year is completed now if it is leap year then the february   
+
+13. retryPromise
+
+   This function helps you to retry promises if needed so you can pass a async function and other optional arguments one is count of retry default it will be three and the time needed to retry in milliseconds  
+
+   for ex: retryPromise(fn: any, retry: number = 3, delay: number = 1000) 
+
+   it will call the function 3 times and return your result if you not pass the number of retry in every second
+
 
 
 package name is util-functions and the functions that i created from the problems that i have faced it will have updates in future and if you have any suggetions or error occurs then contact me in this email
