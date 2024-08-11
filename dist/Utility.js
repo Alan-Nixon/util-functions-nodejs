@@ -7,6 +7,11 @@ class Utility extends AbstractUtility_1.AbstractUtility {
         super(...arguments);
         this.daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         this.monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        this.validateEmail = (email) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.trim());
+        this.validatePassword = (password) => /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])(?=.*[0-9])(?=.*[a-zA-Z]).{8,}$/.test(password.trim());
+        this.validatePhone = (Phone) => /^[1-9]\d{9}$/.test(Phone.trim());
+        this.validateName = (Name) => /^(?=.*[a-zA-Z]).{3,}$/.test(Name.trim());
+        this.validateFullName = (FullName) => /^(?=.*[ _]).{6,}$/.test(FullName.trim());
     }
     getRandomAsciiValue() {
         const min = 33;

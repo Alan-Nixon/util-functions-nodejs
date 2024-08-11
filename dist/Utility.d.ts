@@ -20,4 +20,9 @@ export declare class Utility extends AbstractUtility {
     getDay(dateStr: string): string;
     daysOfYear(dateStr: string | Date): number;
     retryPromise(fn: any, retry?: number, delay?: number): Promise<unknown> | undefined;
+    validateEmail: (email: string) => boolean;
+    validatePassword: (password: string) => boolean;
+    validatePhone: (Phone: string) => boolean;
+    validateName: (Name: string) => boolean;
+    validateFullName: (FullName: string) => boolean;
 }

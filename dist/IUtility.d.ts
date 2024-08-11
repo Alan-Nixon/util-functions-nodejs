@@ -11,4 +11,10 @@ export interface IUtility {
     dayDifference(dateStr1: string, dateStr2: string): number | null;
     getDay(dateStr: string): string;
     daysOfYear(dateStr: string | Date): number;
+    retryPromise(fn: any, retry: number, delay: number): any;
+    validateEmail(email: string): boolean;
+    validatePassword(password: string): boolean;
+    validatePhone(Phone: string): boolean;
+    validateName(Name: string): boolean;
+    validateFullName(FullName: string): boolean;
 }

@@ -244,5 +244,12 @@ export class Utility extends AbstractUtility {
             console.log(error.message ?? "Please input a valid date");
         }
     }
-    
+
+
+    public validateEmail = (email: string) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.trim())
+    public validatePassword = (password: string) => /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])(?=.*[0-9])(?=.*[a-zA-Z]).{8,}$/.test(password.trim())
+    public validatePhone = (Phone: string) => /^[1-9]\d{9}$/.test(Phone.trim())
+    public validateName = (Name: string) => /^(?=.*[a-zA-Z]).{3,}$/.test(Name.trim())
+    public validateFullName = (FullName: string) => /^(?=.*[ _]).{6,}$/.test(FullName.trim());
+
 }

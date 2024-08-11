@@ -13,4 +13,9 @@ export declare abstract class AbstractUtility implements IUtility {
     abstract getDay(dateStr: string): string;
     abstract daysOfYear(dateStr: string | Date): number;
     abstract retryPromise(fn: any, retry?: number, delay?: number): any;
+    abstract validateEmail(email: string): boolean;
+    abstract validatePassword(password: string): boolean;
+    abstract validatePhone(Phone: string): boolean;
+    abstract validateName(Name: string): boolean;
+    abstract validateFullName(FullName: string): boolean;
 }
