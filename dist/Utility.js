@@ -7,11 +7,28 @@ class Utility extends AbstractUtility_1.AbstractUtility {
         super(...arguments);
         this.daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         this.monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        this.validateName = (Name) => /^(?=.*[a-zA-Z]).{3,}$/.test(Name.trim());
+        this.validateFullName = (FullName) => /^(?=.*[ _]).{6,}$/.test(FullName.trim());
         this.validateEmail = (email) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.trim());
         this.validatePassword = (password) => /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])(?=.*[0-9])(?=.*[a-zA-Z]).{8,}$/.test(password.trim());
         this.validatePhone = (Phone) => /^[1-9]\d{9}$/.test(Phone.trim());
-        this.validateName = (Name) => /^(?=.*[a-zA-Z]).{3,}$/.test(Name.trim());
-        this.validateFullName = (FullName) => /^(?=.*[ _]).{6,}$/.test(FullName.trim());
+        this.validateURL = (url) => /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i.test(url);
+        this.validateCreditCard = (cardNumber) => /^\d{13,19}$/.test(cardNumber);
+        this.validateIPV4 = (ip) => /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(ip);
+        this.validateDate = (date) => /^\d{4}-\d{2}-\d{2}$/.test(date);
+        this.validateHexColor = (color) => /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/.test(color);
+        this.validateMACAddress = (mac) => /^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/.test(mac);
+        this.validateIPv6 = (ipv6) => /^(([0-9a-fA-F]{1,4}:){7}([0-9a-fA-F]{1,4}|:))|(([0-9a-fA-F]{1,4}:){1,7}:)|(([0-9a-fA-F]{1,4}:){1,6}(:[0-9a-fA-F]{1,4}|:))|(([0-9a-fA-F]{1,4}:){1,5}((:[0-9a-fA-F]{1,4}){1,2}|:))|(([0-9a-fA-F]{1,4}:){1,4}((:[0-9a-fA-F]{1,4}){1,3}|:))|(([0-9a-fA-F]{1,4}:){1,3}((:[0-9a-fA-F]{1,4}){1,4}|:))|(([0-9a-fA-F]{1,4}:){1,2}((:[0-9a-fA-F]{1,4}){1,5}|:))|([0-9a-fA-F]{1,4}:)((:[0-9a-fA-F]{1,4}){1,6}|:)|(:((:[0-9a-fA-F]{1,4}){1,7}|:))$/.test(ipv6);
+        this.validateUUID = (uuid) => /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(uuid);
+        this.validateCreditCardCVV = (cvv) => /^\d{3,4}$/.test(cvv + "");
+        this.validateLatitude = (latitude) => /^(-?[1-8]?[0-9](\.\d+)?|90(\.0+)?)$/.test(latitude);
+        this.validateLongitude = (longitude) => /^(-?(1[0-7][0-9]|[1-9]?[0-9])(\.\d+)?|180(\.0+)?)$/.test(longitude);
+        this.validateHTMLTag = (tag) => /^<\/?[a-z][a-z0-9]*[^<>]*>$/i.test(tag);
+        this.validateCountryCode = (code) => /^\+\d{1,3}$/.test(code);
+        this.validatePassportNumber = (passport) => /^[a-zA-Z0-9]{6,9}$/.test(passport);
+        this.validateBinary = (binary) => /^[01]+$/.test(binary);
+        this.validateYouTubeURL = (url) => /^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/.test(url);
+        this.validateMongoObjectId = (id) => /^[a-fA-F0-9]{24}$/.test(id);
     }
     getRandomAsciiValue() {
         const min = 33;

@@ -60,18 +60,17 @@ functions are :
    generateOtp(4) return 1260
    generateOtp(6) return 252000
 
-
 7. xKeyGenerator
 
    This functions generates key of length we given and return. It includes Alphabetic characters and special chars except (Double quote), (Single quote), (Opening parenthesis), (Closing parenthesis), (Asterisk), (Comma),(Period),(Slash),(Colon),(Semicolon),(Less than),(Greater than),
    (Opening square bracket),(Backslash), (Closing square bracket),(Caret), (Backtick),(Tilde)
 
-8. isEndCentury 
+8. isEndCentury
 
    This function one parameter as string or number and return if the year is end of century. The string must only contains numbers for ex:
 
-    isEndCentury(2000) return true
-    isEndCentury(1905) return false
+   isEndCentury(2000) return true
+   isEndCentury(1905) return false
 
 9. isLeapYear
 
@@ -79,27 +78,49 @@ functions are :
 
 10. dayDifference
 
-   This function meant for finding the difference of days between two dates like when you pass dayDifference("08-31-2005","08-16-2005") returns 15 it will only return absolute value like when we subtracting each days then if it is -15 it returns 15 
+This function meant for finding the difference of days between two dates like when you pass dayDifference("08-31-2005","08-16-2005") returns 15 it will only return absolute value like when we subtracting each days then if it is -15 it returns 15
 
-   note: date must in format MM-DD-YYYY
+note: date must in format MM-DD-YYYY
 
 11. getDay
 
-   This functions returns day of the date like if the date is 30 6 2024 then it is sunday pass the argument as MM-DD-YYYY
+This functions returns day of the date like if the date is 30 6 2024 then it is sunday pass the argument as MM-DD-YYYY
 
 12. daysOfYear
 
-   This function returns how much days of the year is completed now if it is leap year then the february   
+This function returns how much days of the year is completed now if it is leap year then the february
 
 13. retryPromise
 
-   This function helps you to retry promises if needed so you can pass a async function and other optional arguments one is count of retry default it will be three and the time needed to retry in milliseconds  
+This function helps you to retry promises if needed so you can pass a async function and other optional arguments one is count of retry default it will be three and the time needed to retry in milliseconds
 
-   for ex: retryPromise(fn: any, retry: number = 3, delay: number = 1000) 
+for ex: retryPromise(fn: any, retry: number = 3, delay: number = 1000)
 
-   it will call the function 3 times and return your result if you not pass the number of retry in every second
+it will call the function 3 times and return your result if you not pass the number of retry in every second
 
+14. validateEmail
 
+As the name of the function it is to validate the email in web development validations are very important so some commmon validations are added in the package for the form all the validations are each functions like validate email, password ,phone number and name etc you need to pass your email in the function and it will return true if it is valid otherwise false
+
+15. validatePassword
+
+To validate password 1 argument and boolean return
+
+16. validatePhone
+
+To validate phone number 1 argument and boolean return
+
+17. validateName
+
+To validate name 1 argument and boolean return
+
+18. validateFullName
+
+To validate full name 1 argument and boolean return
+
+19. other validations
+
+    validateURL, validateCreditCard, validateIPV4, validateDate, validateHexColor, validateMACAddress, validateIPv6, validateUUID, validateCreditCardCVV, validateLatitude, validateLongitude, validateHTMLTag, validateCountryCode, validatePassportNumber, validateBinary, validateYouTubeURL, validateMongoObjectId
 
 package name is util-functions and the functions that i created from the problems that i have faced it will have updates in future and if you have any suggetions or error occurs then contact me in this email
 "alannixon2520@gmail.com" if you have any problems then share it with me. i will try to add the functions in my package

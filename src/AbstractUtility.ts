@@ -19,4 +19,21 @@ export abstract class AbstractUtility implements IUtility {
     abstract validatePhone(Phone: string): boolean;
     abstract validateName(Name: string): boolean;
     abstract validateFullName(FullName: string): boolean;
+    abstract validateURL(url: string): boolean
+    abstract validateCreditCard(cardNumber: string): boolean
+    abstract validateIPV4(ip: string): boolean
+    abstract validateDate(date: string): boolean
+    abstract validateHexColor(color: string): boolean
+    abstract validateMACAddress(mac: string): boolean
+    abstract validateIPv6(ipv6: string): boolean
+    abstract validateUUID(uuid: string): boolean
+    abstract validateCreditCardCVV(cvv: string): boolean
+    abstract validateLatitude(latitude: string): boolean
+    abstract validateLongitude(longitude: string): boolean
+    abstract validateHTMLTag(tag: string): boolean
+    abstract validateCountryCode(code: string): boolean
+    abstract validatePassportNumber(passport: string): boolean
+    abstract validateBinary(binary: string): boolean
+    abstract validateYouTubeURL(url: string): boolean
+    abstract validateMongoObjectId(id: string): boolean
 }

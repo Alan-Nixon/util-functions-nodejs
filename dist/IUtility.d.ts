@@ -17,4 +17,21 @@ export interface IUtility {
     validatePhone(Phone: string): boolean;
     validateName(Name: string): boolean;
     validateFullName(FullName: string): boolean;
+    validateURL(url: string): boolean;
+    validateCreditCard(cardNumber: string): boolean;
+    validateIPV4(ip: string): boolean;
+    validateDate(date: string): boolean;
+    validateHexColor(color: string): boolean;
+    validateMACAddress(mac: string): boolean;
+    validateIPv6(ipv6: string): boolean;
+    validateUUID(uuid: string): boolean;
+    validateCreditCardCVV(cvv: string): boolean;
+    validateLatitude(latitude: string): boolean;
+    validateLongitude(longitude: string): boolean;
+    validateHTMLTag(tag: string): boolean;
+    validateCountryCode(code: string): boolean;
+    validatePassportNumber(passport: string): boolean;
+    validateBinary(binary: string): boolean;
+    validateYouTubeURL(url: string): boolean;
+    validateMongoObjectId(id: string): boolean;
 }

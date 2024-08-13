@@ -246,10 +246,38 @@ export class Utility extends AbstractUtility {
     }
 
 
-    public validateEmail = (email: string) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.trim())
-    public validatePassword = (password: string) => /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])(?=.*[0-9])(?=.*[a-zA-Z]).{8,}$/.test(password.trim())
-    public validatePhone = (Phone: string) => /^[1-9]\d{9}$/.test(Phone.trim())
     public validateName = (Name: string) => /^(?=.*[a-zA-Z]).{3,}$/.test(Name.trim())
     public validateFullName = (FullName: string) => /^(?=.*[ _]).{6,}$/.test(FullName.trim());
+    public validateEmail = (email: string) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.trim())
+    public validatePassword = (password: string) => /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])(?=.*[0-9])(?=.*[a-zA-Z]).{8,}$/.test(password.trim())
+    public validatePhone = (Phone: string) => /^[1-9]\d{9}$/.test(Phone.trim());
+    
+    public validateURL = (url: string) => /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i.test(url);
+    public validateCreditCard = (cardNumber: string) => /^\d{13,19}$/.test(cardNumber);
+    public validateIPV4 = (ip: string) => /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(ip);
+    public validateDate = (date: string) => /^\d{4}-\d{2}-\d{2}$/.test(date);
+    public validateHexColor = (color: string) => /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/.test(color);
+    public validateMACAddress = (mac: string) => /^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/.test(mac);
+    public validateIPv6 = (ipv6: string) => /^(([0-9a-fA-F]{1,4}:){7}([0-9a-fA-F]{1,4}|:))|(([0-9a-fA-F]{1,4}:){1,7}:)|(([0-9a-fA-F]{1,4}:){1,6}(:[0-9a-fA-F]{1,4}|:))|(([0-9a-fA-F]{1,4}:){1,5}((:[0-9a-fA-F]{1,4}){1,2}|:))|(([0-9a-fA-F]{1,4}:){1,4}((:[0-9a-fA-F]{1,4}){1,3}|:))|(([0-9a-fA-F]{1,4}:){1,3}((:[0-9a-fA-F]{1,4}){1,4}|:))|(([0-9a-fA-F]{1,4}:){1,2}((:[0-9a-fA-F]{1,4}){1,5}|:))|([0-9a-fA-F]{1,4}:)((:[0-9a-fA-F]{1,4}){1,6}|:)|(:((:[0-9a-fA-F]{1,4}){1,7}|:))$/.test(ipv6);
+    public validateUUID = (uuid: string) => /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(uuid);
+    public validateCreditCardCVV = (cvv: string | number) => /^\d{3,4}$/.test(cvv + "");
+    public validateLatitude = (latitude: string) => /^(-?[1-8]?[0-9](\.\d+)?|90(\.0+)?)$/.test(latitude);
+    public validateLongitude = (longitude: string) => /^(-?(1[0-7][0-9]|[1-9]?[0-9])(\.\d+)?|180(\.0+)?)$/.test(longitude);
+    public validateHTMLTag = (tag: string) => /^<\/?[a-z][a-z0-9]*[^<>]*>$/i.test(tag);
+    public validateCountryCode = (code: string) => /^\+\d{1,3}$/.test(code);
+    public validatePassportNumber = (passport: string) => /^[a-zA-Z0-9]{6,9}$/.test(passport);
+    public validateBinary = (binary: string) => /^[01]+$/.test(binary);
+    public validateYouTubeURL = (url: string) => /^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/.test(url);
+    public validateMongoObjectId = (id: string) => /^[a-fA-F0-9]{24}$/.test(id);
 
 }
+
+
+
+
+
+
+
+
+
+
