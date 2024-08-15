@@ -229,6 +229,18 @@ export class Utility extends AbstractUtility {
         }
     }
 
+    public formatDate(date: Date): string {
+        try {
+            const d = date.getDate().toString().padStart(2, '0');
+            const m = (date.getMonth() + 1).toString().padStart(2, '0');
+            const y = date.getFullYear();
+            return `${d}-${m}-${y}`;
+        } catch (error: any) {
+            console.log(error.message ?? "Please send a valid date")
+            return "Please send a valid date"
+        }
+    };
+
     public retryPromise(fn: any, retry: number = 3, delay: number = 1000) {
         try {
             return new Promise((resolve, reject) => {
@@ -245,13 +257,25 @@ export class Utility extends AbstractUtility {
         }
     }
 
+    public getRelativeTime(date: Date): string {
+        try {
+            const now = new Date();
+            const diffMs = now.getTime() - date.getTime();
+            const diffMins = Math.floor(diffMs / 60000);
+            if (diffMins < 60) return `${diffMins} minute(s) ago`;
+            if (diffMins < 1440) return `${Math.floor(diffMins / 60)} hour(s) ago`;
+            return `${Math.floor(diffMins / 1440)} day(s) ago`;
+        } catch (error: any) {
+            console.log(error.message ?? "Enter a valid date")
+            return "Enter a valid date"
+        }
+    };
 
     public validateName = (Name: string) => /^(?=.*[a-zA-Z]).{3,}$/.test(Name.trim())
     public validateFullName = (FullName: string) => /^(?=.*[ _]).{6,}$/.test(FullName.trim());
     public validateEmail = (email: string) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.trim())
     public validatePassword = (password: string) => /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])(?=.*[0-9])(?=.*[a-zA-Z]).{8,}$/.test(password.trim())
     public validatePhone = (Phone: string) => /^[1-9]\d{9}$/.test(Phone.trim());
-    
     public validateURL = (url: string) => /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i.test(url);
     public validateCreditCard = (cardNumber: string) => /^\d{13,19}$/.test(cardNumber);
     public validateIPV4 = (ip: string) => /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(ip);
@@ -271,6 +295,11 @@ export class Utility extends AbstractUtility {
     public validateMongoObjectId = (id: string) => /^[a-fA-F0-9]{24}$/.test(id);
 
 }
+
+
+
+
+
 
 
 

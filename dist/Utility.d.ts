@@ -19,7 +19,9 @@ export declare class Utility extends AbstractUtility {
     dayDifference(dateStr1: string, dateStr2: string): number | null;
     getDay(dateStr: string): string;
     daysOfYear(dateStr: string | Date): number;
+    formatDate(date: Date): string;
     retryPromise(fn: any, retry?: number, delay?: number): Promise<unknown> | undefined;
+    getRelativeTime(date: Date): string;
     validateName: (Name: string) => boolean;
     validateFullName: (FullName: string) => boolean;
     validateEmail: (email: string) => boolean;

@@ -34,4 +34,6 @@ export interface IUtility {
     validateBinary(binary: string): boolean;
     validateYouTubeURL(url: string): boolean;
     validateMongoObjectId(id: string): boolean;
+    formatDate(date: Date): string;
+    getRelativeTime(date: Date): string;
 }

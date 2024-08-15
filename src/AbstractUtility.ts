@@ -36,4 +36,6 @@ export abstract class AbstractUtility implements IUtility {
     abstract validateBinary(binary: string): boolean
     abstract validateYouTubeURL(url: string): boolean
     abstract validateMongoObjectId(id: string): boolean
+    abstract formatDate(date: Date): string
+    abstract getRelativeTime(date: Date): string
 }

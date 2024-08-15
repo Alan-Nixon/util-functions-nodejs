@@ -33,6 +33,8 @@ export interface IUtility {
     validatePassportNumber(passport: string): boolean
     validateBinary(binary: string): boolean
     validateYouTubeURL(url: string): boolean
-    validateMongoObjectId(id: string): boolean
+    validateMongoObjectId(id: string): boolean;
+    formatDate(date: Date): string
+    getRelativeTime(date: Date): string
 }
 

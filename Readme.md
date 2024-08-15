@@ -1,6 +1,8 @@
 Util Functions
 
-util functions provides you functions that helps you to do some operations typically based on time
+util functions provides you functions that helps you to do functionality in your project
+
+![alt text](./crct.png) ![alt text](./notCrct.png)
 
 functions are :
 
@@ -121,6 +123,12 @@ To validate full name 1 argument and boolean return
 19. other validations
 
     validateURL, validateCreditCard, validateIPV4, validateDate, validateHexColor, validateMACAddress, validateIPv6, validateUUID, validateCreditCardCVV, validateLatitude, validateLongitude, validateHTMLTag, validateCountryCode, validatePassportNumber, validateBinary, validateYouTubeURL, validateMongoObjectId
+
+20. formatDate
+
+   send your date here and it will update the string and return back
+
+21. getRelativeTime 
 
 package name is util-functions and the functions that i created from the problems that i have faced it will have updates in future and if you have any suggetions or error occurs then contact me in this email
 "alannixon2520@gmail.com" if you have any problems then share it with me. i will try to add the functions in my package

@@ -259,6 +259,20 @@ class Utility extends AbstractUtility_1.AbstractUtility {
             return -1;
         }
     }
+    formatDate(date) {
+        var _a;
+        try {
+            const d = date.getDate().toString().padStart(2, '0');
+            const m = (date.getMonth() + 1).toString().padStart(2, '0');
+            const y = date.getFullYear();
+            return `${d}-${m}-${y}`;
+        }
+        catch (error) {
+            console.log((_a = error.message) !== null && _a !== void 0 ? _a : "Please send a valid date");
+            return "Please send a valid date";
+        }
+    }
+    ;
     retryPromise(fn, retry = 3, delay = 1000) {
         var _a;
         try {
@@ -280,5 +294,23 @@ class Utility extends AbstractUtility_1.AbstractUtility {
             console.log((_a = error.message) !== null && _a !== void 0 ? _a : "Please input a valid date");
         }
     }
+    getRelativeTime(date) {
+        var _a;
+        try {
+            const now = new Date();
+            const diffMs = now.getTime() - date.getTime();
+            const diffMins = Math.floor(diffMs / 60000);
+            if (diffMins < 60)
+                return `${diffMins} minute(s) ago`;
+            if (diffMins < 1440)
+                return `${Math.floor(diffMins / 60)} hour(s) ago`;
+            return `${Math.floor(diffMins / 1440)} day(s) ago`;
+        }
+        catch (error) {
+            console.log((_a = error.message) !== null && _a !== void 0 ? _a : "Enter a valid date");
+            return "Enter a valid date";
+        }
+    }
+    ;
 }
 exports.Utility = Utility;
