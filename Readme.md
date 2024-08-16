@@ -2,7 +2,16 @@ Util Functions
 
 util functions provides you functions that helps you to do functionality in your project
 
-![alt text](./crct.png) ![alt text](./notCrct.png)
+correct format of using the package 
+
+
+### Correct Format
+![Correct Format](https://res.cloudinary.com/dyh7c1wtm/image/upload/v1723738938/crct_ad6khn.png)
+
+### Incorrect Format
+![Incorrect Format](https://res.cloudinary.com/dyh7c1wtm/image/upload/v1723738938/notCrct_xvmfwe.png)
+
+
 
 functions are :
 

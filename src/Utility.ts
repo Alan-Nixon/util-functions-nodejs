@@ -271,6 +271,15 @@ export class Utility extends AbstractUtility {
         }
     };
 
+    public camelToSnake(str: string): string {
+        return str.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase();
+    }
+    
+    public snakeToCamel(str: string): string {
+        return str.toLowerCase().replace(/(_\w)/g, match => match[1].toUpperCase());
+    }
+
+
     public validateName = (Name: string) => /^(?=.*[a-zA-Z]).{3,}$/.test(Name.trim())
     public validateFullName = (FullName: string) => /^(?=.*[ _]).{6,}$/.test(FullName.trim());
     public validateEmail = (email: string) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.trim())

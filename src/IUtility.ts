@@ -36,5 +36,7 @@ export interface IUtility {
     validateMongoObjectId(id: string): boolean;
     formatDate(date: Date): string
     getRelativeTime(date: Date): string
+    camelToSnake(str: string): string  
+    snakeToCamel(str: string): string 
 }
 
