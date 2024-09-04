@@ -312,5 +312,11 @@ class Utility extends AbstractUtility_1.AbstractUtility {
         }
     }
     ;
+    camelToSnake(str) {
+        return str.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase();
+    }
+    snakeToCamel(str) {
+        return str.toLowerCase().replace(/(_\w)/g, match => match[1].toUpperCase());
+    }
 }
 exports.Utility = Utility;

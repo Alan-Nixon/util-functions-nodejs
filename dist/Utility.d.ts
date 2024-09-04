@@ -22,6 +22,8 @@ export declare class Utility extends AbstractUtility {
     formatDate(date: Date): string;
     retryPromise(fn: any, retry?: number, delay?: number): Promise<unknown> | undefined;
     getRelativeTime(date: Date): string;
+    camelToSnake(str: string): string;
+    snakeToCamel(str: string): string;
     validateName: (Name: string) => boolean;
     validateFullName: (FullName: string) => boolean;
     validateEmail: (email: string) => boolean;

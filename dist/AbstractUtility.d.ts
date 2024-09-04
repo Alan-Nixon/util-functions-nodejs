@@ -37,4 +37,6 @@ export declare abstract class AbstractUtility implements IUtility {
     abstract validateMongoObjectId(id: string): boolean;
     abstract formatDate(date: Date): string;
     abstract getRelativeTime(date: Date): string;
+    abstract camelToSnake(str: string): string;
+    abstract snakeToCamel(str: string): string;
 }
