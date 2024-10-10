@@ -39,4 +39,5 @@ export declare abstract class AbstractUtility implements IUtility {
     abstract getRelativeTime(date: Date): string;
     abstract camelToSnake(str: string): string;
     abstract snakeToCamel(str: string): string;
+    abstract generatePort(): Promise<number>;
 }

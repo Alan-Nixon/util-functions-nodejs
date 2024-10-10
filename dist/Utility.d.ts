@@ -24,6 +24,7 @@ export declare class Utility extends AbstractUtility {
     getRelativeTime(date: Date): string;
     camelToSnake(str: string): string;
     snakeToCamel(str: string): string;
+    generatePort(): Promise<number>;
     validateName: (Name: string) => boolean;
     validateFullName: (FullName: string) => boolean;
     validateEmail: (email: string) => boolean;

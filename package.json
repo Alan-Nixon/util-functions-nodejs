@@ -1,7 +1,7 @@
 {
   "name": "util-functions-nodejs",
   "version": "1.3.4",
-  "description": "it's a package to done operations based on the time",
+  "description": "This package is all you need to complete utility functions for your project efficiently.",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -21,8 +21,11 @@
   ],
   "author": "Alan_Nixon",
   "license": "ISC",
-  "files": [ "dist" ],
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
-    "typescript": "^4.0.0"
+    "@types/node": "^22.7.5",
+    "typescript": "^4.9.5"
   }
 }

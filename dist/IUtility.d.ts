@@ -38,4 +38,5 @@ export interface IUtility {
     getRelativeTime(date: Date): string;
     camelToSnake(str: string): string;
     snakeToCamel(str: string): string;
+    generatePort(): Promise<number>;
 }

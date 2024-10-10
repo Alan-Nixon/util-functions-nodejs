@@ -1,5 +1,5 @@
 import { AbstractUtility } from './AbstractUtility';
-
+import * as net from 'net';
 
 
 export class Utility extends AbstractUtility {
@@ -274,9 +274,28 @@ export class Utility extends AbstractUtility {
     public camelToSnake(str: string): string {
         return str.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase();
     }
-    
+
     public snakeToCamel(str: string): string {
         return str.toLowerCase().replace(/(_\w)/g, match => match[1].toUpperCase());
+    }
+
+    public generatePort(): Promise<number> {
+        const minPort = 1000;
+        const maxPort = 65535;
+        return new Promise((resolve, reject) => {
+            const port = Math.floor(Math.random() * (maxPort - minPort + 1)) + minPort;
+            const server = net.createServer();
+            server.once('error', (err: any) => {
+                resolve(this.generatePort());
+            });
+
+            server.once('listening', () => {
+                server.close();
+                resolve(port);
+            });
+
+            server.listen(port);
+        });
     }
 
 
