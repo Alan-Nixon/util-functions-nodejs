@@ -39,4 +39,5 @@ export interface IUtility {
     camelToSnake(str: string): string;
     snakeToCamel(str: string): string;
     generatePort(): Promise<number>;
+    isPortAvailable(port: number): Promise<boolean>;
 }

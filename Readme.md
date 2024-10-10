@@ -148,6 +148,13 @@ functions are :
 
    Just call this function and it will return a port number
 
+24. isPortAvailable
+
+   This function check whether that the given port number is available or not in you system you need 
+   send a port number in range 79 and 65535
+
+   eg:
+   const available = await isPortAvailable(4000) returns true or false
 
 package name is util-functions and the functions that i created from the problems that i have faced it will have updates in future and if you have any suggetions or error occurs then contact me in this email
 "alannixon2520@gmail.com" if you have any problems then share it with me. i will try to add the functions in my package

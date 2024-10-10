@@ -22,6 +22,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Utility = void 0;
 const AbstractUtility_1 = require("./AbstractUtility");
@@ -342,20 +351,31 @@ class Utility extends AbstractUtility_1.AbstractUtility {
     snakeToCamel(str) {
         return str.toLowerCase().replace(/(_\w)/g, match => match[1].toUpperCase());
     }
-    generatePort() {
-        const minPort = 1000;
-        const maxPort = 65535;
-        return new Promise((resolve, reject) => {
-            const port = Math.floor(Math.random() * (maxPort - minPort + 1)) + minPort;
+    isPortAvailable(port) {
+        if (typeof port === 'number' && port > 79 && port < 65536) {
+            throw new Error("Please enter a valid port number greater than 79");
+        }
+        return new Promise(resolve => {
             const server = net.createServer();
-            server.once('error', (err) => {
-                resolve(this.generatePort());
-            });
+            server.once('error', (err) => resolve(false));
             server.once('listening', () => {
                 server.close();
-                resolve(port);
+                resolve(true);
             });
             server.listen(port);
+        });
+    }
+    generatePort() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const minPort = 1000;
+            const maxPort = 65535;
+            const port = Math.floor(Math.random() * (maxPort - minPort + 1)) + minPort;
+            if (yield this.isPortAvailable(port)) {
+                return port;
+            }
+            else {
+                return yield this.generatePort();
+            }
         });
     }
 }

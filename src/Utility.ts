@@ -280,7 +280,7 @@ export class Utility extends AbstractUtility {
     }
 
     public isPortAvailable(port: number): Promise<boolean> {
-        if (typeof port === 'number' && port > 79) {
+        if (typeof port === 'number' && port > 79&& port <65536) {
             throw new Error("Please enter a valid port number greater than 79")
         }
         return new Promise(resolve => {
