@@ -41,4 +41,5 @@ export abstract class AbstractUtility implements IUtility {
     abstract camelToSnake(str: string): string
     abstract snakeToCamel(str: string): string
     abstract generatePort(): Promise<number>
+    abstract isPortAvailable(port: number):Promise<boolean>
 }

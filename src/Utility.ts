@@ -279,23 +279,32 @@ export class Utility extends AbstractUtility {
         return str.toLowerCase().replace(/(_\w)/g, match => match[1].toUpperCase());
     }
 
-    public generatePort(): Promise<number> {
-        const minPort = 1000;
-        const maxPort = 65535;
-        return new Promise((resolve, reject) => {
-            const port = Math.floor(Math.random() * (maxPort - minPort + 1)) + minPort;
+    public isPortAvailable(port: number): Promise<boolean> {
+        if (typeof port === 'number' && port > 79) {
+            throw new Error("Please enter a valid port number greater than 79")
+        }
+        return new Promise(resolve => {
             const server = net.createServer();
-            server.once('error', (err: any) => {
-                resolve(this.generatePort());
-            });
+            server.once('error', (err: any) => resolve(false));
 
             server.once('listening', () => {
                 server.close();
-                resolve(port);
+                resolve(true);
             });
 
             server.listen(port);
         });
+    }
+
+    public async generatePort(): Promise<number> {
+        const minPort = 1000;
+        const maxPort = 65535;
+        const port = Math.floor(Math.random() * (maxPort - minPort + 1)) + minPort;
+        if (await this.isPortAvailable(port)) {
+            return port
+        } else {
+            return await this.generatePort()
+        }
     }
 
 
