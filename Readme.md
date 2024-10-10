@@ -142,6 +142,12 @@ functions are :
 
    This functions convert the text to both camel case and snake case we all know that in JS camel case is the standard way of coding and in python we mostly use snake case in both function we can convert from one style to another
 
+23. generatePort 
+
+   This function generate an port number in range between 1000 and 65536 and it will check that is the port available in the system or already allocated by any program 
+
+   Just call this function and it will return a port number
+
 
 package name is util-functions and the functions that i created from the problems that i have faced it will have updates in future and if you have any suggetions or error occurs then contact me in this email
 "alannixon2520@gmail.com" if you have any problems then share it with me. i will try to add the functions in my package
