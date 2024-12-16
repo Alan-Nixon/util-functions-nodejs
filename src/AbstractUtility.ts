@@ -4,6 +4,7 @@ export abstract class AbstractUtility implements IUtility {
     abstract numTokandM(numString: string | number): string | number;
     abstract getDate(date: number | string, fullDay?: string): string;
     abstract getTimeDifference(targetDate: string): string;
+    abstract getNDates(date: string, n: number): string[]
     abstract getLastMonths(monthCount: number): string[];
     abstract getDatesOfCurrentYear(arrayOfDays: string[]): string[];
     abstract generateOtp(digit: number): number | string;

@@ -120,6 +120,26 @@ export class Utility extends AbstractUtility {
         }
     }
 
+    public getNDates(date: string, n: number): string[] {
+        try {
+            if (!date) { throw new Error("Invalid date string provided."); }
+            const startDate = new Date(date);
+            if (typeof n !== "number" || n === 0) { throw new Error("The second argument must be a non-zero number."); }
+            const dates = [];
+            const step = n > 0 ? 1 : -1;
+            for (let i = 1; i <= Math.abs(n); i++) {
+                const newDate = new Date(startDate);
+                newDate.setDate(startDate.getDate() + i * step);
+                const formattedDate = newDate.toISOString().split("T")[0];
+                dates.push(formattedDate);
+            }
+            return n > 0 ? dates : dates.reverse();
+        } catch (error: any) {
+            console.log(error.message ?? "Error occurred while getting months");
+            return [];
+        }
+    }
+
     public getLastMonths(monthCount: number): string[] {
         try {
             let currentDate = new Date().getMonth();
