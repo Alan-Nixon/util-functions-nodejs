@@ -155,10 +155,9 @@ export class Utility extends AbstractUtility {
     }
 
     public generateOtp(digit: number): number | string {
-        if (!digit || isNaN(digit)) {
-            return "Invalid digits";
-        }
-        return Number(this.padStart(this.numGenerator(digit).toString(), digit, this.numGenerator(1).toString()));
+        if (!digit || isNaN(digit) || digit < 1) { return "Invalid digits" }
+        const otp = this.padStart(this.numGenerator(digit).toString(), digit, this.numGenerator(1).toString())
+        return otp[0] === '0' ? this.generateOtp(digit) : Number(otp);
     }
 
     public xKeyGenerator(length: string | number): string {
@@ -280,8 +279,9 @@ export class Utility extends AbstractUtility {
     }
 
     public isPortAvailable(port: number): Promise<boolean> {
-        if (typeof port === 'number' && port > 79&& port <65536) {
-            throw new Error("Please enter a valid port number greater than 79")
+        if (typeof port === 'number' && port < 79 && port > 65535) {
+            console.error("Please enter a valid port number greater than 79")
+            return Promise.resolve(false)
         }
         return new Promise(resolve => {
             const server = net.createServer();

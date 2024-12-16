@@ -220,10 +220,11 @@ class Utility extends AbstractUtility_1.AbstractUtility {
         }
     }
     generateOtp(digit) {
-        if (!digit || isNaN(digit)) {
+        if (!digit || isNaN(digit) || digit < 1) {
             return "Invalid digits";
         }
-        return Number(this.padStart(this.numGenerator(digit).toString(), digit, this.numGenerator(1).toString()));
+        const otp = this.padStart(this.numGenerator(digit).toString(), digit, this.numGenerator(1).toString());
+        return otp[0] === '0' ? this.generateOtp(digit) : Number(otp);
     }
     xKeyGenerator(length) {
         var _a;
@@ -352,8 +353,9 @@ class Utility extends AbstractUtility_1.AbstractUtility {
         return str.toLowerCase().replace(/(_\w)/g, match => match[1].toUpperCase());
     }
     isPortAvailable(port) {
-        if (typeof port === 'number' && port > 79 && port < 65536) {
-            throw new Error("Please enter a valid port number greater than 79");
+        if (typeof port === 'number' && port < 79 && port > 65535) {
+            console.error("Please enter a valid port number greater than 79");
+            return Promise.resolve(false);
         }
         return new Promise(resolve => {
             const server = net.createServer();

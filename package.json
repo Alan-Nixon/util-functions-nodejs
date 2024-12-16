@@ -1,6 +1,6 @@
 {
   "name": "util-functions-nodejs",
-  "version": "1.3.6",
+  "version": "1.4.1",
   "description": "This package is all you need to complete utility functions for your project efficiently.",
   "main": "dist/index.js",
   "scripts": {

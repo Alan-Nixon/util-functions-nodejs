@@ -1,8 +1,8 @@
-Util Functions
+# Util Functions
 
-util functions provides you functions that helps you to do functionality in your project
+Util functions provides you functions that helps you to do functionality in your project.
 
-correct format of using the package, you cannot destructure the functions
+Correct format of using the package, you cannot destructure the functions.
 
 ### Correct Format
 
@@ -12,150 +12,165 @@ correct format of using the package, you cannot destructure the functions
 
 ![Incorrect Format](https://res.cloudinary.com/dyh7c1wtm/image/upload/v1723738938/notCrct_xvmfwe.png)
 
-functions are :
+Functions are:
 
-1. numTokandM
+1. **numTokandM**
 
-   This method have a single parameter which recieves numbers or string includes number and return back the value for ex:
+   This method has a single parameter which receives numbers or strings that include numbers and returns the value. For example:
+   
+   - If you pass "1500" then it returns "1.5k", so 1500 -> 1.5k
+   - If it is "15,000" then 15k, so 15000 -> 15k
+   - This "1000000" to 1m so, 1000000 -> 1M
 
-   if you pass "1500" then it will returns "1.5k", so 1500 -> 1.5k
-   if it is "15,000" then 15k, so 15000 -> 15k
-   this "1000000" to 1m so, 1000000 -> 1M
+2. **getTimeDifference**
 
-2. getTimeDifference
+   This method also has a single parameter which receives a string and you must pass a future date. It will print how many years, months, days, hours, and minutes have passed. For example:
+   
+   - If you pass "2025-05-14" then "10 months 329 days 18 hours 11 minutes" will be the output.
+   
+   Note: Pass the string in this format year-month-day.
 
-   This method also have a single parameter which recieve a string and you must pass a future date so
-   it will print how much years, month, days,hours and minute is passed for ex:
+3. **getDate**
 
-   if you pass "2025-05-14" then "10 months 329 days 18 hours 11 minutes" will be the output
+   This method has 1-2 parameters. The first parameter includes a number or string which is the number of days. If you don't provide the 2nd parameter, it will add the days to the current date. If the first parameter is a negative value, it will subtract. The second parameter receives a date and if it is included, it will add the days to the given date. For example:
+   
+   - If the current date is "2024-06-18" and the first parameter is 365, then it returns "2025-06-18".
+   - If the current date is "2024-06-18" and the first parameter is -365, then it returns "2023-06-19".
+   - If you give like getDate(-5, "2024-01-10") then it returns "2024-01-05".
+   - If you give like getDate(5, "2024-01-10") then it returns "2024-01-15".
 
-   note: pass the string in this format year-month-days
+4. **getLastMonths**
 
-3. getDate
+   This method has one parameter which receives a number or string that includes only numbers and returns the last N months from the current month as an array. For example:
+   
+   - If the input is 12 then it will return the last 12 months.
+   - getLastMonths(12) -> returns [ 'July', 'August', 'September', 'October', 'November', 'December', 'January', 'February', 'March', 'April', 'May', 'June' ]
+   
+   You cannot give a negative value. If you do, it returns [].
 
-   This method have 1-2 parameter first parameter includes a number or string which is the number of days and if you does'nt give 2nd parameter then it will add the days with current date if the first parameter is negative value then it will substract. The second parameter receives a date and if it is included then it will add the days to the given date for ex:
+5. **getDatesOfCurrentYear**
 
-   if the current date is "2024-06-18 then first parameter is 365 then return "2025-06-18"
-   if the current date is "2024-06-18 then first parameter is -365 then return "2023-06-19"
+   As the name suggests, it receives an array of strings and returns the dates if the date is in the current year. For example:
+   
+   - If the input array is ["2025-04-08", "2024-04-10", "2025-12-12", "2024-04-08", "2024-08-08"], then it returns [ '2024-04-10', '2024-04-08', '2024-08-08' ].
+   
+   The return array only includes the dates in the current year.
 
-   if you give like getDate(-5,"2024-01-10") then returns "2024-01-05"
-   if you give like getDate(5,"2024-01-10") then returns "2024-01-10"
+6. **generateOtp**
 
-4. getLastMonths
+   This function generates an OTP based on the number of digits you provide. It is always unique and can be used for generating OTPs. It needs one argument to call the function and it returns the number of digits. For example:
+   
+   - generateOtp(4) returns 1260
+   - generateOtp(6) returns 252000
+   
+   Note: No leading zero in the generated OTP.
 
-   This method also have one parameter which recives number or string includes only numbers and return the last N months from current month as an array for ex:
+7. **xKeyGenerator**
 
-   if the input is 12 then it will return last 12 months
-   getLastMonths(12) -> returns
+   This function generates a key of the length given and returns it. It includes alphabetic characters and special characters except (Double quote), (Single quote), (Opening parenthesis), (Closing parenthesis), (Asterisk), (Comma), (Period), (Slash), (Colon), (Semicolon), (Less than), (Greater than), (Opening square bracket), (Backslash), (Closing square bracket), (Caret), (Backtick), (Tilde).
 
-   [ 'July', 'August', 'September', 'October', 'November', 'December',
-   'January', 'February', 'March', 'April', 'May', 'June' ]
+8. **isEndCentury**
 
-   you cannot give a negtive value if it does then return []
+   This function takes one parameter as a string or number and returns if the year is the end of the century. The string must only contain numbers. For example:
+   
+   - isEndCentury(2000) returns true
+   - isEndCentury(1905) returns false
 
-5. getDatesOfCurrentYear
+9. **isLeapYear**
 
-   As the name provides it recieves a array of strings and return the dates if the date is in current year. it may be not be that much necessary but there must be scenarios we use this for ex:
+   As the name of the function suggests, it finds if the input year is a leap year or not. For example:
+   
+   - isLeapYear(2024) returns true
+   - isLeapYear(1900) returns false
+   
+   If any NaN values are sent like isLeapYear("YEAR"), it will throw "Invalid digits" as we can't calculate that.
 
-   if input array is ["2025-04-08", "2024-04-10","2025-12-12", "2024-04-08","2024-08-08"]
-   then it returns [ '2024-04-10', '2024-04-08', '2024-08-08' ]
+10. **dayDifference**
 
-   the return array only includes the dates in the current year
+    This function is meant for finding the difference in days between two dates. For example:
+    
+    - When you pass dayDifference("08-31-2005", "08-16-2005") it returns 15. It will only return the absolute value.
+    
+    Note: Date must be in the format MM-DD-YYYY.
 
-6. generateOtp
+11. **getDay**
 
-   This functions generates otp based on you give the digits . it always unique it can be used for generating otp it need one argument to call the function it return number of digits that's it
-   for ex:
+    This function returns the day of the date. For example:
+    
+    - If the date is 30-06-2024 then it is Sunday. Pass the argument as MM-DD-YYYY.
 
-   generateOtp(4) return 1260
-   generateOtp(6) return 252000
+12. **daysOfYear**
 
-7. xKeyGenerator
+    This function returns how many days of the year have been completed. If it is a leap year, then February is considered.
 
-   This functions generates key of length we given and return. It includes Alphabetic characters and special chars except (Double quote), (Single quote), (Opening parenthesis), (Closing parenthesis), (Asterisk), (Comma),(Period),(Slash),(Colon),(Semicolon),(Less than),(Greater than),
-   (Opening square bracket),(Backslash), (Closing square bracket),(Caret), (Backtick),(Tilde)
+13. **retryPromise**
 
-8. isEndCentury
+    This function helps you to retry promises if needed. You can pass an async function and other optional arguments. One is the count of retries (default is three) and the time needed to retry in milliseconds. For example:
+    
+    - retryPromise(fn: any, retry: number = 3, delay: number = 1000)
+    
+    It will call the function 3 times and return your result if you do not pass the number of retries in every second.
 
-   This function one parameter as string or number and return if the year is end of century. The string must only contains numbers for ex:
+14. **validateEmail**
 
-   isEndCentury(2000) return true
-   isEndCentury(1905) return false
+    As the name of the function suggests, it is to validate the email. In web development, validations are very important. Some common validations are added in the package for the form. All the validations are each function like validate email, password, phone number, and name, etc. You need to pass your email in the function and it will return true if it is valid, otherwise false.
 
-9. isLeapYear
+15. **validatePassword**
 
-   As the name of the function it also find the input year is leap or not as we know 2024 was a leap year if you pass isLeapYear(2024) then it returns true and if it is isLeapYear(1900) then returns false if any NaN things send like isLeapYear("YEAR") then it will throw "Invalid digits" as we cant calculate that
+    To validate the password, 1 argument and boolean return.
 
-10. dayDifference
+16. **validatePhone**
 
-   This function meant for finding the difference of days between two dates like when you pass dayDifference("08-31-2005","08-16-2005") returns 15 it will only return absolute value like when we subtracting each days then if it is -15 it returns 15
+    To validate the phone number, 1 argument and boolean return.
 
-   note: date must in format MM-DD-YYYY
+17. **validateName**
 
-11. getDay
+    To validate the name, 1 argument and boolean return.
 
-   This functions returns day of the date like if the date is 30 6 2024 then it is sunday pass the argument as MM-DD-YYYY
+18. **validateFullName**
 
-12. daysOfYear
+    To validate the full name, 1 argument and boolean return.
 
-   This function returns how much days of the year is completed now if it is leap year then the february
+19. **Other validations**
 
-13. retryPromise
+    - validateURL
+    - validateCreditCard
+    - validateIPV4
+    - validateDate
+    - validateHexColor
+    - validateMACAddress
+    - validateIPv6
+    - validateUUID
+    - validateCreditCardCVV
+    - validateLatitude
+    - validateLongitude
+    - validateHTMLTag
+    - validateCountryCode
+    - validatePassportNumber
+    - validateBinary
+    - validateYouTubeURL
+    - validateMongoObjectId
 
-   This function helps you to retry promises if needed so you can pass a async function and other optional arguments one is count of retry default it will be three and the time needed to retry in milliseconds
+20. **formatDate**
 
-   for ex: retryPromise(fn: any, retry: number = 3, delay: number = 1000)  
+    Send your date here and it will update the string and return back.
 
-   it will call the function 3 times and return your result if you not pass the number of retry in every second
+21. **getRelativeTime**
 
-14. validateEmail
+22. **camelToSnake and snakeToCamel**
 
-   As the name of the function it is to validate the email in web development validations are very important so some commmon validations are added in the package for the form all the validations are each functions like validate email, password ,phone number and name etc you need to pass your email in the function and it will return true if it is valid otherwise false
+    These functions convert the text to both camel case and snake case. We all know that in JS camel case is the standard way of coding and in Python, we mostly use snake case. In both functions, we can convert from one style to another.
 
-15. validatePassword
+23. **generatePort**
 
-   To validate password 1 argument and boolean return
+    This function generates a port number in the range between 1000 and 65536 and it will check if the port is available in the system or already allocated by any program. Just call this function and it will return a port number.
 
-16. validatePhone
+24. **isPortAvailable**
 
-   To validate phone number 1 argument and boolean return
+    This function checks whether the given port number is available or not in your system. You need to send a port number in the range 79 and 65535. For example:
+    
+    - const available = await isPortAvailable(4000) returns true or false.
 
-17. validateName
+The package name is util-functions and the functions that I created are from the problems that I have faced. It will have updates in the future and if you have any suggestions or errors occur, then contact me at this email:
 
-   To validate name 1 argument and boolean return
-
-18. validateFullName
-
-   To validate full name 1 argument and boolean return
-
-19. other validations
-
-   validateURL, validateCreditCard, validateIPV4, validateDate, validateHexColor, validateMACAddress, validateIPv6, validateUUID, validateCreditCardCVV, validateLatitude, validateLongitude, validateHTMLTag, validateCountryCode, validatePassportNumber, validateBinary, validateYouTubeURL, validateMongoObjectId
-
-20. formatDate
-
-   send your date here and it will update the string and return back
-
-21. getRelativeTime
-
-22. camelToSnake and snakeToCamel
-
-   This functions convert the text to both camel case and snake case we all know that in JS camel case is the standard way of coding and in python we mostly use snake case in both function we can convert from one style to another
-
-23. generatePort 
-
-   This function generate an port number in range between 1000 and 65536 and it will check that is the port available in the system or already allocated by any program 
-
-   Just call this function and it will return a port number
-
-24. isPortAvailable
-
-   This function check whether that the given port number is available or not in you system you need 
-   send a port number in range 79 and 65535
-
-   eg:
-   const available = await isPortAvailable(4000) returns true or false
-
-package name is util-functions and the functions that i created from the problems that i have faced it will have updates in future and if you have any suggetions or error occurs then contact me in this email
-"alannixon2520@gmail.com" if you have any problems then share it with me. i will try to add the functions in my package
-
+"alannixon2520@gmail.com". If you have any problems, then share them with me. I will try to add the functions to my package.til Functions
