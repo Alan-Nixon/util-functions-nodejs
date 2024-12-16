@@ -39,6 +39,16 @@ Functions are:
    - If you give like getDate(-5, "2024-01-10") then it returns "2024-01-05".
    - If you give like getDate(5, "2024-01-10") then it returns "2024-01-15".
 
+4. **getNDates**
+
+    This method have 2 parameters. One is date typeof string and second one is number. This method returns an array of string of date which calculates based on the second parameter. For example:
+
+    - If the first parameter date is 2024-12-27 and second parameter number is 7
+     [ '2024-12-28', '2024-12-29', '2024-12-3 '2024-12-31', '2025-01-01', '2025-01-02'. '2025-01-03' ]
+    
+    - If the first parameter date is 2024-12-27 and second parameter number is -7
+     [ 2024-12-20, 2024-12-21, 2024-12-22, 2024-12-23, 2024-12-24, 2024-12-25, 2024-12-26 ]
+
 4. **getLastMonths**
 
    This method has one parameter which receives a number or string that includes only numbers and returns the last N months from the current month as an array. For example:
