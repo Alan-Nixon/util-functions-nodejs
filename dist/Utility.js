@@ -183,6 +183,31 @@ class Utility extends AbstractUtility_1.AbstractUtility {
             return "Invalid Input";
         }
     }
+    getNDates(date, n) {
+        var _a;
+        try {
+            if (!date) {
+                throw new Error("Invalid date string provided.");
+            }
+            const startDate = new Date(date);
+            if (typeof n !== "number" || n === 0) {
+                throw new Error("The second argument must be a non-zero number.");
+            }
+            const dates = [];
+            const step = n > 0 ? 1 : -1;
+            for (let i = 1; i <= Math.abs(n); i++) {
+                const newDate = new Date(startDate);
+                newDate.setDate(startDate.getDate() + i * step);
+                const formattedDate = newDate.toISOString().split("T")[0];
+                dates.push(formattedDate);
+            }
+            return n > 0 ? dates : dates.reverse();
+        }
+        catch (error) {
+            console.log((_a = error.message) !== null && _a !== void 0 ? _a : "Error occurred while getting months");
+            return [];
+        }
+    }
     getLastMonths(monthCount) {
         var _a;
         try {
@@ -332,13 +357,13 @@ class Utility extends AbstractUtility_1.AbstractUtility {
         var _a;
         try {
             const now = new Date();
-            const diffMs = now.getTime() - date.getTime();
+            const diffMs = Math.abs(now.getTime() - date.getTime());
             const diffMins = Math.floor(diffMs / 60000);
             if (diffMins < 60)
-                return `${diffMins} minute(s) ago`;
+                return `${diffMins} minutes`;
             if (diffMins < 1440)
-                return `${Math.floor(diffMins / 60)} hour(s) ago`;
-            return `${Math.floor(diffMins / 1440)} day(s) ago`;
+                return `${Math.floor(diffMins / 60)} hours`;
+            return `${Math.floor(diffMins / 1440)} days`;
         }
         catch (error) {
             console.log((_a = error.message) !== null && _a !== void 0 ? _a : "Enter a valid date");

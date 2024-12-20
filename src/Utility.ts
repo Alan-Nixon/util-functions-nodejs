@@ -279,11 +279,11 @@ export class Utility extends AbstractUtility {
     public getRelativeTime(date: Date): string {
         try {
             const now = new Date();
-            const diffMs = now.getTime() - date.getTime();
+            const diffMs = Math.abs(now.getTime() - date.getTime());
             const diffMins = Math.floor(diffMs / 60000);
-            if (diffMins < 60) return `${diffMins} minute(s) ago`;
-            if (diffMins < 1440) return `${Math.floor(diffMins / 60)} hour(s) ago`;
-            return `${Math.floor(diffMins / 1440)} day(s) ago`;
+            if (diffMins < 60) return `${diffMins} minutes`;
+            if (diffMins < 1440) return `${Math.floor(diffMins / 60)} hours`;
+            return `${Math.floor(diffMins / 1440)} days`;
         } catch (error: any) {
             console.log(error.message ?? "Enter a valid date")
             return "Enter a valid date"

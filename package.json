@@ -1,6 +1,6 @@
 {
   "name": "util-functions-nodejs",
-  "version": "1.4.4",
+  "version": "1.4.6",
   "description": "This package is all you need to complete utility functions for your project efficiently.",
   "main": "dist/index.js",
   "scripts": {
@@ -8,6 +8,14 @@
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alan-Nixon/util-functions-nodejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Alan-Nixon/util-functions-nodejs/issues"
+  },
+  "homepage": "https://github.com/Alan-Nixon/util-functions-nodejs#readme",
   "keywords": [
     "utility",
     "functions",

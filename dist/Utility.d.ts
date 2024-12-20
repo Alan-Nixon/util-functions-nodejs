@@ -10,6 +10,7 @@ export declare class Utility extends AbstractUtility {
     numTokandM(numString: string | number): string | number;
     getDate(date: number | string, fullDay?: string): string;
     getTimeDifference(targetDate: string): string;
+    getNDates(date: string, n: number): string[];
     getLastMonths(monthCount: number): string[];
     getDatesOfCurrentYear(arrayOfDays: string[]): string[];
     generateOtp(digit: number): number | string;
